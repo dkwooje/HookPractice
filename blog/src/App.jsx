@@ -6,8 +6,13 @@ function App() {
   const [time,setTime] = useState(1);
 
   const handleClick = () =>{
-    setTime(time + 1);
+    if (time >= 12){
+      setTime(1);
+    } else {
+      setTime(time + 1);
+    }
   };
+
 
   return (
     <div>
