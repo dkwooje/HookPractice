@@ -3,31 +3,28 @@ import './App.css';
 
 function App() {
 
-  const [time,setTime] = useState(1);
-/*
-  const handleClick = () =>{   //변수형 
-    if (time >= 12){
-      setTime(1);
-    } else {
-      setTime(time + 1);
-    }
-  };
-*/
-  function handleClick(){  //함수형
+  const [names,setNames] = useState(['홍길동','김민수']);
+  const [input,setInput] = useState('');
 
-      if (time >= 12){
-        setTime(1);
-      } else {
-        setTime(time + 1);
-      }
-    };
-  
+  function handleInput(e){
+    setInput(e.target.value);
+  }
+  function handleUpload(e){
+    setNames((prevState) => {
+      console.log('이전 state: ', prevState);
+      return [input, ...prevState];
+    })
+  }
+
 
 
   return (
     <div>
-      <span>현제 시작: {time}시</span>
-      <button onClick={handleClick}>Update</button>
+      <input type='text' value={input} onChange={handleInput} />
+      <button onClick={handleUpload}>upload</button>
+      {names.map((name, idx) =>{
+          return <p key={idx}>{name}</p>;
+      })}
     </div>
   );
 }
