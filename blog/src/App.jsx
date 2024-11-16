@@ -1,9 +1,19 @@
 import { useState } from 'react';
 import './App.css';
 
+function heavyWork(){
+  console.log('작업');
+  return ['홍길동', '김민수'];
+}
+
+
 function App() {
 
-  const [names,setNames] = useState(['홍길동','김민수']);
+  const [names,setNames] = useState(
+    function(){
+    return heavyWork();
+  });
+  
   const [input,setInput] = useState('');
 
   function handleInput(e){
