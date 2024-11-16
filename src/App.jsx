@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-
-
-
 function App() {
 
   const [count, setCount] =useState(1);
@@ -16,10 +13,24 @@ function App() {
   function handleInput(e){
     setName(e.target.value)
   }
+/*
+  useEffect(function(){
+    console.log("랜더링");
+  },);  
 
   useEffect(function(){
-    console.log("렌더링");
-  })
+    console.log("count 변화");
+  }, [count]);  
+
+  useEffect(function(){
+    console.log("name 변화");
+  }, [name]);
+  */  
+
+  useEffect(function(){
+    console.log("마운팅");
+  }, []);
+
 
 return(
   <div>
