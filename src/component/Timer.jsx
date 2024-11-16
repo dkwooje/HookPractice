@@ -1,13 +1,13 @@
 import { useEffect } from "react"
 
-export default function Timer(props){
+export default function Timer(){
 
-    useEffect(()=>{
-        const timer = setInterval(() => {
+    useEffect(function(){
+        const timer = setInterval( function(){
             console.log('타이머 돌아가는중...');
-        }, 1000);
+        }, 500);
 
-        return () => {
+        return function(){
              clearInterval(timer);
              console.log('타이머가 종료되었습니다');
         }
