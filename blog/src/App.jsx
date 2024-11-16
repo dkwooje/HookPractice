@@ -4,14 +4,24 @@ import './App.css';
 function App() {
 
   const [time,setTime] = useState(1);
-
-  const handleClick = () =>{
+/*
+  const handleClick = () =>{   //변수형 
     if (time >= 12){
       setTime(1);
     } else {
       setTime(time + 1);
     }
   };
+*/
+  function handleClick(){  //함수형
+
+      if (time >= 12){
+        setTime(1);
+      } else {
+        setTime(time + 1);
+      }
+    };
+  
 
 
   return (
